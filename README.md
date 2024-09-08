@@ -113,8 +113,8 @@ This is a handbook for deploy python django and aiogram projects
     sudo systemctl restart nginx
 
 20. Https larga dostup beramiz 8000 portini yopamiz
-    sudo ufw delete allow 8000
-    sudo ufw allow 'Nginx Full'
+       sudo ufw delete allow 8000
+       sudo ufw allow 'Nginx Full'
 
 
 
