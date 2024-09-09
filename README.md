@@ -110,7 +110,7 @@ This is a handbook for deploy python django and aiogram projects
   sudo systemctl status your_project.service # statusni tekshirib olamiz
 
 18. Nginx ni sozlab olamiz
-    sudo nano etc/nginx/sites-available/your_project # your project nomli nginx fayl yaratib olamiz va uning ichiga kiramiz
+    sudo nano /etc/nginx/sites-available/your_project # your project nomli nginx fayl yaratib olamiz va uning ichiga kiramiz
 
       server {
           server_name farhod.mega-center.uz;
