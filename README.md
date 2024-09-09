@@ -108,6 +108,7 @@ This is a handbook for deploy python django and aiogram projects
   sudo systemctl start your_project.service  # agar avval mavjud bo'lsa restart qilamiz
   sudo systemctl enable your_project.service
   sudo systemctl status your_project.service # statusni tekshirib olamiz
+    
 
 18. Nginx ni sozlab olamiz
     sudo nano /etc/nginx/sites-available/your_project # your project nomli nginx fayl yaratib olamiz va uning ichiga kiramiz
@@ -149,6 +150,8 @@ This is a handbook for deploy python django and aiogram projects
   
   
   }
+18. SSL sertifikat olish
+   https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04
 
 19. Keyin esa bu faylni /etc/nginx/sites-enabled/ ichiga simlink qilamiz
     sudo ln -s /etc/nginx/sites-available/your_project /etc/nginx/sites-enabled/
