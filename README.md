@@ -20,30 +20,48 @@ This is a handbook for deploy python django and aiogram projects
    python3 -m venv venv
    source venv/bin/activate
 10. requirements.txt ichidagi kutubxonalarni o'rnatib olamiz
+    pip install multidict typing_extensions attr attrs yarl async_timeout idna_ssl aiosignal charset_normalizer
     pip install -r requirements.txt
-11. Virtual muhitdan chiqamiz va postgresql ma'lumotlar ba'zasi yaratib olamiz
+11. vim editori orqali .env faylini yaratib uning ichiga environ qiymatalarni kiritib saqlaymiz
+      DMINS=2023386058,5757849246,39325540,2128982044,404185899,1497650313,6433057712
+      SUPERADMINS=2023386058,39325540
+      BOT_TOKEN=7373806986:AAEYrS5ifkfLxn5d38rLtVYbeGW3uCh2z_c
+      PORT=8080
+      ip=localhost
+      DB_USER=farhod
+      DB_NAME=helperclientdb
+      DB_PASS=farhod004
+      DB_HOST=localhost
+      DATABASE_URL=postgresql://helperclientdb_user:0WTr00mcDSxblFbhsho0cDgRB454AYvP@dpg-cqtepqrv2p9s73dejdm0-a.oregon-postgres.render.com/helperclientdb
+      DJANGO_SECRET_KEY=ogMdTWbttsvzYR2F1Ku9K4qmu7yFBDFK
+      DEBUG=True
+      DEVELOPMENT_MODE=True
+
+    Esc :wq saqlash va chiqish
+    Esc :q! saqlamasdan chiqish
+13. Virtual muhitdan chiqamiz va postgresql ma'lumotlar ba'zasi yaratib olamiz
     deactivate
     sudo -u postgres psql # psql orqali postgresql ma'lumotlar ba'zasi muhitiga kirib olish
     CREATE DATABASE cloudproject; # ma'lumotlar ba'zasi yaratib olish
     CREATE USER clouduser WITH PASSWORD 'password'; # ba'za uchun user yaratib olamiz
     GRANT ALL PRIVILEGES ON DATABASE cloudproject TO clouduser;  # ma'lumotlar ba'zasidan foydalanish uchun userga ruhsat berish
     \q  # psql muhitidan chiqib olish
-12. Project muhitiga kirib makemigrations va migrate qilamiz
+14. Project muhitiga kirib makemigrations va migrate qilamiz
     python3 manage.py makemigrations
     python3 manage.py migrate
     python3 manage.py createsuperuser # superuser yaratib olamiz
-13. Loyihani tekshirib ko'rish uchun run qilib ko'ramiz
+15. Loyihani tekshirib ko'rish uchun run qilib ko'ramiz
     sudo ufw allow 8000  # 8000 portini ochamiz
     python3 manage.py runserver 0.0.0.0:8000  # http://server_domain_or_IP:8000 ko'rinishida browserdan tekshirib ko'ring
-14. Gunicorn yordamida tekshirib ko'rish
+16. Gunicorn yordamida tekshirib ko'rish
     source venv/bin/activate
     pip install gunicorn # agar bo'lsa shart emas
     gunicorn --bind 0.0.0.0:8000 config.wsgi:application
-15. conf service faylini yaratib olish va uni sozlash
+17. conf service faylini yaratib olish va uni sozlash
     # muhitdan chiqganingizni tekshirib ko'ring
     sudo ufw allow 'Nginx Full'  # HTTP va HTTPS trafikini ruxsat berish
     sudo nano /etc/systemd/system/yourproject.service # yourproject nomli cervice fayl yaratib olamiz va uning ichiga kirib olamiz
-16. Service faylning ichiga quyidagilarni qo'shamiz
+18. Service faylning ichiga quyidagilarni qo'shamiz
     [Unit]
     Description=gunicorn daemon
     After=network.target
