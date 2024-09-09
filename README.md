@@ -17,7 +17,7 @@ This is a handbook for deploy python django and aiogram projects
 8. Loyiha ichiga kirib olamiz
    cd your_project
 9. Vertual muhit o'rnatib uning ichiga kirib olamiz
-   python3 -m venv venv
+   python3.7 -m venv venv
    source venv/bin/activate
 10. requirements.txt ichidagi kutubxonalarni o'rnatib olamiz
     pip install multidict typing_extensions attr attrs yarl async_timeout idna_ssl aiosignal charset_normalizer
@@ -80,6 +80,23 @@ This is a handbook for deploy python django and aiogram projects
 
     ctrl+O ENTER # saqlash
     ctrl+X chiqish
+
+    Bot uchun ham xuddi shunday conf fayl yoziladi
+
+    [Unit]
+    Description=Aiogram Telegram Bot
+    After=network.target
+   
+    [Service]
+    User=root
+    Group=www-data
+    WorkingDirectory=/var/www/Tebe_bot
+    ExecStart=/var/www/Tebe_bot/venv/bin/python app.py
+   
+    [Install]
+    WantedBy=multi-user.target
+
+    
 
 17.Ushbu service faylni ishga tushuramiz
   sudo systemctl daemon-reload
