@@ -100,6 +100,10 @@ This is a handbook for deploy python django and aiogram projects
     
 
 17.Ushbu service faylni ishga tushuramiz
+
+  sudo systemctl stop helperclientbot.service
+  sudo systemctl disable helperclientbot.service
+   
   sudo systemctl daemon-reload
   sudo systemctl start your_project.service  # agar avval mavjud bo'lsa restart qilamiz
   sudo systemctl enable your_project.service
