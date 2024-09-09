@@ -21,8 +21,9 @@ This is a handbook for deploy python django and aiogram projects
    source venv/bin/activate
 10. requirements.txt ichidagi kutubxonalarni o'rnatib olamiz
     pip install multidict typing_extensions attr attrs yarl async_timeout idna_ssl aiosignal charset_normalizer
+    pip install --upgrade pip setuptools
     pip install -r requirements.txt
-11. vim editori orqali .env faylini yaratib uning ichiga environ qiymatalarni kiritib saqlaymiz
+12. vim editori orqali .env faylini yaratib uning ichiga environ qiymatalarni kiritib saqlaymiz
       DMINS=2023386058,5757849246,39325540,2128982044,404185899,1497650313,6433057712
       SUPERADMINS=2023386058,39325540
       BOT_TOKEN=7373806986:AAEYrS5ifkfLxn5d38rLtVYbeGW3uCh2z_c
