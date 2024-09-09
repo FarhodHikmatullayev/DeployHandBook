@@ -43,11 +43,7 @@ This is a handbook for deploy python django and aiogram projects
     deactivate
     sudo -u postgres psql: # psql orqali postgresql ma'lumotlar ba'zasi muhitiga kirib olish
 
-    CREATE DATABASE nimadirlar 
-    WITH ENCODING 'UTF8' 
-    LC_COLLATE='en_US.UTF-8' 
-    LC_CTYPE='en_US.UTF-8' 
-    TEMPLATE template0;  # utf8 da ishlaydigan ma'lumotlar ba'zasi yaratish
+    CREATE DATABASE table_name WITH ENCODING 'UTF8' LC_COLLATE='en_US.UTF-8' LC_CTYPE='en_US.UTF-8' TEMPLATE template0;  # utf8 da ishlaydigan ma'lumotlar ba'zasi yaratish
 
     CREATE DATABASE cloudproject; # ma'lumotlar ba'zasi yaratib olish
     CREATE USER clouduser WITH PASSWORD 'password'; # ba'za uchun user yaratib olamiz
