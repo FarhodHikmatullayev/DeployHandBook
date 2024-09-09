@@ -41,27 +41,34 @@ This is a handbook for deploy python django and aiogram projects
     Esc :q! saqlamasdan chiqish
 13. Virtual muhitdan chiqamiz va postgresql ma'lumotlar ba'zasi yaratib olamiz
     deactivate
-    sudo -u postgres psql # psql orqali postgresql ma'lumotlar ba'zasi muhitiga kirib olish
+    sudo -u postgres psql: # psql orqali postgresql ma'lumotlar ba'zasi muhitiga kirib olish
+
+    CREATE DATABASE nimadirlar 
+    WITH ENCODING 'UTF8' 
+    LC_COLLATE='en_US.UTF-8' 
+    LC_CTYPE='en_US.UTF-8' 
+    TEMPLATE template0;  # utf8 da ishlaydigan ma'lumotlar ba'zasi yaratish
+
     CREATE DATABASE cloudproject; # ma'lumotlar ba'zasi yaratib olish
     CREATE USER clouduser WITH PASSWORD 'password'; # ba'za uchun user yaratib olamiz
     GRANT ALL PRIVILEGES ON DATABASE cloudproject TO clouduser;  # ma'lumotlar ba'zasidan foydalanish uchun userga ruhsat berish
     \q  # psql muhitidan chiqib olish
-14. Project muhitiga kirib makemigrations va migrate qilamiz
+15. Project muhitiga kirib makemigrations va migrate qilamiz
     python3 manage.py makemigrations
     python3 manage.py migrate
     python3 manage.py createsuperuser # superuser yaratib olamiz
-15. Loyihani tekshirib ko'rish uchun run qilib ko'ramiz
+16. Loyihani tekshirib ko'rish uchun run qilib ko'ramiz
     sudo ufw allow 8000  # 8000 portini ochamiz
     python3 manage.py runserver 0.0.0.0:8000  # http://server_domain_or_IP:8000 ko'rinishida browserdan tekshirib ko'ring
-16. Gunicorn yordamida tekshirib ko'rish
+17. Gunicorn yordamida tekshirib ko'rish
     source venv/bin/activate
     pip install gunicorn # agar bo'lsa shart emas
     gunicorn --bind 0.0.0.0:8000 config.wsgi:application
-17. conf service faylini yaratib olish va uni sozlash
+18. conf service faylini yaratib olish va uni sozlash
     # muhitdan chiqganingizni tekshirib ko'ring
     sudo ufw allow 'Nginx Full'  # HTTP va HTTPS trafikini ruxsat berish
     sudo nano /etc/systemd/system/yourproject.service # yourproject nomli cervice fayl yaratib olamiz va uning ichiga kirib olamiz
-18. Service faylning ichiga quyidagilarni qo'shamiz
+19. Service faylning ichiga quyidagilarni qo'shamiz
     [Unit]
     Description=gunicorn daemon
     After=network.target
