@@ -114,44 +114,32 @@ This is a handbook for deploy python django and aiogram projects
     sudo nano /etc/nginx/sites-available/your_project # your project nomli nginx fayl yaratib olamiz va uning ichiga kiramiz
 
       server {
-          server_name farhod.mega-center.uz;
-  
-          location = /favicon.ico {
-              access_log off;
-              log_not_found off;
-          }
-  
-          location /static/ {
-              alias /var/www/MarketingTeamBot/staticfiles;
-          }
-  
-          location / {
-              include proxy_params;
-              proxy_pass http://localhost:8022;
-          }
-  
-      listen 443 ssl; # managed by Certbot
-      ssl_certificate /etc/letsencrypt/live/farhod.mega-center.uz/fullchain.pem; # managed by Certbot
-      ssl_certificate_key /etc/letsencrypt/live/farhod.mega-center.uz/privkey.pem; # managed by Certbot
-      include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-      ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-  
-  }
-  
-  server {
-      if ($host = farhod.mega-center.uz) {
-          return 301 https://$host$request_uri;
-      } # managed by Certbot
-  
-  
-          listen 80;
-          server_name farhod.mega-center.uz;
-      return 404; # managed by Certbot
-  
-  
-  }
+         listen 80;
+         server_name education.mega-center.uz;
+
+         location = /favicon.ico { access_log off; log_not_found off; }
+         location /static/ {
+             alias /var/www/EducationCenterbot/staticfiles/;  # Update this with your actual path
+         }
+
+         location /media/ {
+              alias /var/www/EducationCenterbot/media/;  # Update this with your actual path
+         }
+
+         location / {
+            include proxy_params;
+            proxy_pass http://localhost:8027;
+         }
+      }
 18. SSL sertifikat olish
    https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04
+
+   sudo nginx -t
+   sudo systemctl reload nginx
+   sudo ufw status
+   sudo certbot --nginx -d example.com -d www.example.com
+   sudo systemctl status certbot.timer
+   sudo certbot renew --dry-run
 
 19. Keyin esa bu faylni /etc/nginx/sites-enabled/ ichiga simlink qilamiz
     sudo ln -s /etc/nginx/sites-available/your_project /etc/nginx/sites-enabled/
