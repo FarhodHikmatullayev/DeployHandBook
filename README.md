@@ -152,6 +152,9 @@ This is a handbook for deploy python django and aiogram projects
                proxy_pass http://localhost:8027;
             }
          }
+    nginx conf faylni sites-enabledga ko'chirish
+
+        sudo ln -s /etc/nginx/sites-available/cloudproject /etc/nginx/sites-enabled
 18. SSL sertifikat olish
    https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04
 
