@@ -110,18 +110,18 @@ This is a handbook for deploy python django and aiogram projects
 29. Service faylning ichiga quyidagilarni qo'shamiz
     django loyihasi uchun conf file
 
-         [Unit]
-         Description=gunicorn daemon
-         After=network.target
+        [Unit]
+        Description=gunicorn daemon
+        After=network.target
     
-         [Service]
-         User=root
-         Group=www-data
-         WorkingDirectory=/var/www/MarketingTeamBot
-         ExecStart=/var/www/MarketingTeamBot/venv/bin/python manage.py runserver 0.0.0.0:8022
+        [Service]
+        User=root
+        Group=www-data
+        WorkingDirectory=/var/www/MarketingTeamBot
+        ExecStart=/var/www/MarketingTeamBot/venv/bin/python manage.py runserver 0.0.0.0:8022
     
-         [Install]
-         WantedBy=multi-user.target
+        [Install]
+        WantedBy=multi-user.target
     saqlash
     
         ctrl+O ENTER
