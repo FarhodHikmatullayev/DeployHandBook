@@ -66,21 +66,24 @@ This is a handbook for deploy python django and aiogram projects
        sudo ufw allow 'Nginx Full'  # HTTP va HTTPS trafikini ruxsat berish
        sudo nano /etc/systemd/system/yourproject.service # yourproject nomli cervice fayl yaratib olamiz va uning ichiga kirib olamiz
 19. Service faylning ichiga quyidagilarni qo'shamiz
-       [Unit]
-       Description=gunicorn daemon
-       After=network.target
-    
-       [Service]
-       User=root
-       Group=www-data
-       WorkingDirectory=/var/www/MarketingTeamBot
-       ExecStart=/var/www/MarketingTeamBot/venv/bin/python manage.py runserver 0.0.0.0:8022
-    
-       [Install]
-       WantedBy=multi-user.target
 
-    ctrl+O ENTER # saqlash
-    ctrl+X chiqish
+             [Unit]
+             Description=gunicorn daemon
+             After=network.target
+    
+             [Service]
+             User=root
+             Group=www-data
+             WorkingDirectory=/var/www/MarketingTeamBot
+             ExecStart=/var/www/MarketingTeamBot/venv/bin/python manage.py runserver 0.0.0.0:8022
+    
+             [Install]
+             WantedBy=multi-user.target
+
+    
+
+          ctrl+O ENTER # saqlash
+          ctrl+X chiqish
 
     Bot uchun ham xuddi shunday conf fayl yoziladi
 
@@ -113,7 +116,7 @@ This is a handbook for deploy python django and aiogram projects
 18. Nginx ni sozlab olamiz
     sudo nano /etc/nginx/sites-available/your_project # your project nomli nginx fayl yaratib olamiz va uning ichiga kiramiz
 
-         server {
+        server {
             listen 80;
             server_name education.mega-center.uz;
 
