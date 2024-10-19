@@ -3,7 +3,7 @@ This is a handbook for deploy python django and aiogram projects
 
 1. Serverga kirish
 
-       ssh root@185.217.131.71
+       ssh root@111.111.111.11
 3. Parol kiritish
 4. Yangilash
 
@@ -37,17 +37,17 @@ This is a handbook for deploy python django and aiogram projects
         pip install -r requirements.txt
 17. vim editori orqali .env faylini yaratib uning ichiga environ qiymatalarni kiritib saqlaymiz
 
-        ADMINS=2023386058,5757849246,39325540,2128982044,404185899,1497650313,6433057712
-        SUPERADMINS=2023386058,39325540
-        BOT_TOKEN=7373806986:AAEYrS5ifkfLxn5d38rLtVYbeGW3uCh2z_c
+        ADMINS=2222222222,1111111111
+        SUPERADMINS=2222222222,1111111111
+        BOT_TOKEN=7373806986:AAasdfafasfasdfafasfsdfaswerE
         PORT=8080
         ip=localhost
-        DB_USER=farhod
-        DB_NAME=helperclientdb
-        DB_PASS=farhod004
+        DB_USER=user
+        DB_NAME=name
+        DB_PASS=password
         DB_HOST=localhost
-        DATABASE_URL=postgresql://helperclientdb_user:0WTr00mcDSxblFbhsho0cDgRB454AYvP@dpg-cqtepqrv2p9s73dejdm0-a.oregon-postgres.render.com/helperclientdb
-        DJANGO_SECRET_KEY=ogMdTWbttsvzYR2F1Ku9K4qmu7yFBDFK
+        DATABASE_URL=postgresql://helperclientdb_user:asdjfSDFADFAdfajsdfskadlfsl54AYvP@dpg-cqtepqrv2p9s73dejdm0-a.oregon-postgres.render.com/db_name
+        DJANGO_SECRET_KEY=ogMdTWbttsvzYR2Faasdfasdfew4qmu7yFBDFK
         DEBUG=True
         DEVELOPMENT_MODE=True
     saqlash va chiqish
@@ -117,8 +117,8 @@ This is a handbook for deploy python django and aiogram projects
         [Service]
         User=root
         Group=www-data
-        WorkingDirectory=/var/www/MarketingTeamBot
-        ExecStart=/var/www/MarketingTeamBot/venv/bin/python manage.py runserver 0.0.0.0:8022
+        WorkingDirectory=/var/www/Project_name
+        ExecStart=/var/www/Project_name/venv/bin/python manage.py runserver 0.0.0.0:8022
     
         [Install]
         WantedBy=multi-user.target
@@ -138,8 +138,8 @@ This is a handbook for deploy python django and aiogram projects
         [Service]
         User=root
         Group=www-data
-        WorkingDirectory=/var/www/Tebe_bot
-        ExecStart=/var/www/Tebe_bot/venv/bin/python app.py
+        WorkingDirectory=/var/www/Project_name
+        ExecStart=/var/www/Project_name/venv/bin/python app.py
    
         [Install]
         WantedBy=multi-user.target
@@ -148,8 +148,8 @@ This is a handbook for deploy python django and aiogram projects
 
 17.Ushbu service faylni ishga tushuramiz
 
-    sudo systemctl stop helperclientbot.service
-    sudo systemctl disable helperclientbot.service
+    sudo systemctl stop your_project.service
+    sudo systemctl disable your_project.service
    
     sudo systemctl daemon-reload
     sudo systemctl start your_project.service  # agar avval mavjud bo'lsa restart qilamiz
@@ -165,15 +165,15 @@ This is a handbook for deploy python django and aiogram projects
 
         server {
             listen 80;
-            server_name education.mega-center.uz;
+            server_name aaa.bbb.uz;
 
             location = /favicon.ico { access_log off; log_not_found off; }
             location /static/ {
-                alias /var/www/EducationCenterbot/staticfiles/;  # Update this with your actual path
+                alias /var/www/Project_name/staticfiles/;  # Update this with your actual path
             }
 
             location /media/ {
-                 alias /var/www/EducationCenterbot/media/;  # Update this with your actual path
+                 alias /var/www/Project_name/media/;  # Update this with your actual path
             }
 
             location / {
